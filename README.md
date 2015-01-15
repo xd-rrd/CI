@@ -24,5 +24,8 @@ TFS supports code review by creating two work items (code review request, code r
 Acknowledgement
 
 Associated code are downloaded and modified from the following resources:
+
 •	TFS Plugins (http://tfspluginsuite.codeplex.com)
+
 •	TFS Build Extensions (http://tfsbuildextensions.codeplex.com)
+
