@@ -1,0 +1,15 @@
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\obj\Debug\Rrd.Tfs.Plugins.csprojResolveAssemblyReference.cache
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\obj\Debug\Rrd.Tfs.Plugins.Properties.Resources.resources
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\obj\Debug\Rrd.Tfs.Plugins.csproj.GenerateResource.Cache
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\bin\Debug\Rrd.Tfs.Plugins.dll
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\bin\Debug\Rrd.Tfs.Plugins.pdb
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\bin\Debug\Microsoft.TeamFoundation.Framework.Server.dll
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\bin\Debug\Microsoft.TeamFoundation.Server.Core.dll
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\bin\Debug\Microsoft.TeamFoundation.VersionControl.Server.dll
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Server.Dataaccesslayer.dll
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\bin\Debug\Newtonsoft.Json.dll
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\obj\Debug\Rrd.Tfs.Plugins.dll
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\obj\Debug\Rrd.Tfs.Plugins.pdb
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader.dll
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\bin\Debug\Microsoft.WITDataStore.dll
+C:\Workspaces\tfs-dive\CI\ContinuousIntegration\Rrd.Tfs.Plugins\bin\Debug\Rrd.Tfs.Plugins.dll.config

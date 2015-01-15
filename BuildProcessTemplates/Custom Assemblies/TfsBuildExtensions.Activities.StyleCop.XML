@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TfsBuildExtensions.Activities.StyleCop</name>
+    </assembly>
+    <members>
+        <member name="T:TfsBuildExtensions.Activities.BaseCodeActivity">
+            <summary>
+            Provides a base class to all Activities which support remoting
+            </summary>
+        </member>
+        <member name="T:TfsBuildExtensions.Activities.IBaseActivityMinimumArguments">
+            <summary>
+            Represents the minimum number of arguments that an activity must implement
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.IBaseActivityMinimumArguments.FailBuildOnError">
+            <summary>
+            Set to true to fail the build if the activity logs any errors. Default is false
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.IBaseActivityMinimumArguments.TreatWarningsAsErrors">
+            <summary>
+            Set to true to fail the build if the activity logs any errors. Default is false
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.IBaseActivityMinimumArguments.IgnoreExceptions">
+            <summary>
+            Set to true to ignore any unhandled exceptions thrown by activities. Default is false
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.IBaseActivityMinimumArguments.LogExceptionStack">
+            <summary>
+            Set to true to log the entire stack in the event of an exception. Default is true
+            <para></para>
+            <remarks>This parameter is ignored, if <see cref="P:TfsBuildExtensions.Activities.IBaseActivityMinimumArguments.FailBuildOnError"/> is true or <see cref="P:TfsBuildExtensions.Activities.IBaseActivityMinimumArguments.TreatWarningsAsErrors"/> is true </remarks>
+            </summary>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.BaseCodeActivity.Execute(System.Activities.CodeActivityContext)">
+            <summary>
+            Entry point to the Activity. It sets the context and executes InternalExecute which is implemented by derived activities
+            </summary>
+            <param name="context">CodeActivityContext</param>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.BaseCodeActivity.InternalExecute">
+            <summary>
+            InternalExecute method which activities should implement
+            </summary>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.BaseCodeActivity.LogBuildError(System.String)">
+            <summary>
+            Logs a message as a build error
+            Also can fail the build if the FailBuildOnError flag is set
+            </summary>
+            <param name="errorMessage">Message to save</param>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.BaseCodeActivity.LogBuildWarning(System.String)">
+            <summary>
+            Logs a message as a build warning
+            </summary>
+            <param name="warningMessage">Message to save</param>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.BaseCodeActivity.LogBuildMessage(System.String,Microsoft.TeamFoundation.Build.Client.BuildMessageImportance)">
+            <summary>
+            Logs a generical build message
+            </summary>
+            <param name="message">The message to save</param>
+            <param name="importance">The verbosity importance of the message</param>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.BaseCodeActivity.LogBuildMessage(System.String)">
+            <summary>
+            Logs a generical build message
+            </summary>
+            <param name="message">The message to save</param>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.BaseCodeActivity.LogBuildLink(System.String,System.Uri)">
+            <summary>
+            Logs a link to the build log
+            </summary>
+            <param name="message">Message to save as link name</param>
+            <param name="uri">Uri for link</param>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.BaseCodeActivity.AddTextNode(System.String,Microsoft.TeamFoundation.Build.Client.IBuildInformationNode)">
+            <summary>
+            Add a text node to the build log
+            </summary>
+            <param name="text">Display text</param>
+            <param name="parent">Parent node in the build log</param>
+            <returns>The new node containing the supplied text if <paramref name="parent"/> is not a null reference; otherwise null.</returns>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.BaseCodeActivity.AddLinkNode(System.String,System.Uri,Microsoft.TeamFoundation.Build.Client.IBuildInformationNode)">
+            <summary>
+            Add a hyperlink to the
+            </summary>
+            <param name="text">Display text of the hyperlink</param>
+            <param name="uri">Uri of the hyperlink</param>
+            <param name="parent">Parent node in the build log</param>
+            <returns>The new external link containing the supplied hyperlink if <paramref name="parent"/> is not a null reference; otherwise null.</returns>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.BaseCodeActivity.FailBuildOnError">
+            <summary>
+            Set to true to fail the build if the activity logs any errors. Default is false
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.BaseCodeActivity.TreatWarningsAsErrors">
+            <summary>
+            Set to true to fail the build if the activity logs any errors. Default is false
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.BaseCodeActivity.IgnoreExceptions">
+            <summary>
+            Set to true to ignore any unhandled exceptions thrown by activities. Default is false
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.BaseCodeActivity.LogExceptionStack">
+            <summary>
+            Set to true to log the entire stack in the event of an exception. Default is true
+            <para></para>
+            <remarks>This parameter is ignored, if <see cref="P:TfsBuildExtensions.Activities.BaseCodeActivity.FailBuildOnError"/> is true or <see cref="P:TfsBuildExtensions.Activities.BaseCodeActivity.TreatWarningsAsErrors"/> is true </remarks>
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.BaseCodeActivity.ActivityContext">
+            <summary>
+            Variable to hold CodeActivityContext
+            </summary>
+        </member>
+        <member name="T:TfsBuildExtensions.Activities.FailingBuildException">
+            <summary>
+            FailingBuild Exception
+            </summary>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.FailingBuildException.#ctor">
+            <summary>
+            Initializes a new instance of the FailingBuildException class
+            </summary>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.FailingBuildException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the FailingBuildException class
+            </summary>
+            <param name="message">Message to send</param>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.FailingBuildException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the FailingBuildException class
+            </summary>
+            <param name="message">Message to send</param>
+            <param name="innerException">Inner exception details</param>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.FailingBuildException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the FailingBuildException class
+            </summary>
+            <param name="info">Serialization information for the exception</param>
+            <param name="context">The streaming context for the exception</param>
+        </member>
+        <member name="T:TfsBuildExtensions.Activities.CodeQuality.StyleCop">
+            <summary>
+            Wraps the StyleCopConsole class to provide a mechanism for scanning files for StyleCop compliance.
+            </summary>
+            <example>
+            <code lang="xml"><![CDATA[
+            <Sequence DisplayName="TFSBuildExtensions StyleCop Sequence" sap:VirtualizedContainerService.HintSize="818,146">
+            <Sequence.Variables>
+            <Variable x:TypeArguments="x:Int32" Name="StyleCopViolationCount" />
+            </Sequence.Variables>
+            <tac1:StyleCop AdditionalAddInPaths="{x:Null}" CacheResults="{x:Null}" FailBuildOnError="{x:Null}" MaximumViolationCount="{x:Null}" Succeeded="{x:Null}" TreatViolationsErrorsAsWarnings="{x:Null}" TreatWarningsAsErrors="{x:Null}" ForceFullAnalysis="True" sap:VirtualizedContainerService.HintSize="200,22" LogExceptionStack="True" LogFile="[SourcesDirectory + &quot;\StyleCopLog.txt&quot;]" SettingsFile="[SourcesDirectory + &quot;\Settings.StyleCop&quot;]" ShowOutput="True" SourceFiles="[New String() {SourcesDirectory}]" ViolationCount="[StyleCopViolationCount]" XmlOutputFile="[SourcesDirectory + &quot;\StyleCopviolations.xml&quot;]" />
+            </Sequence>
+            ]]></code>    
+            </example>
+        </member>
+        <member name="F:TfsBuildExtensions.Activities.CodeQuality.StyleCop.DefaultViolationLimit">
+            <summary>
+            The default maximum number of violations that can be discovered
+            </summary>
+        </member>
+        <member name="F:TfsBuildExtensions.Activities.CodeQuality.StyleCop.exitCode">
+            <summary>
+            The status of the analysis
+            </summary>
+        </member>
+        <member name="F:TfsBuildExtensions.Activities.CodeQuality.StyleCop.violations">
+            <summary>
+            The files that vioaltions encountered
+            </summary>
+        </member>
+        <member name="F:TfsBuildExtensions.Activities.CodeQuality.StyleCop.violationLimit">
+            <summary>
+            The maximum violation count
+            </summary>
+        </member>
+        <member name="M:TfsBuildExtensions.Activities.CodeQuality.StyleCop.InternalExecute">
+            <summary>
+            Executes the logic for this workflow activity
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.MaximumViolationCount">
+            <summary>
+            Sets the maximum violation count before scanning is halted.
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.ViolationCount">
+            <summary>
+            Gets the number of violations found.
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.ShowOutput">
+            <summary>
+            Sets a value indicating whether to show names of files scanned to the build log
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.Succeeded">
+            <summary>
+            Gets whether the scan succeeded.
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.CacheResults">
+            <summary>
+            Sets a value indicating whether StyleCop should write cache files to disk after performing an analysis. Default is false.
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.ForceFullAnalysis">
+            <summary>
+            Sets a value indicating whether StyleCop should ignore cached results and perform a clean analysis. 
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.XmlOutputFile">
+            <summary>
+            Sets the name for the XML log file produced by the StyleCop runner
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.LogFile">
+            <summary>
+            Sets the text log file that list the violation 
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.SourceFiles">
+            <summary>
+            Sets the source files path or list of specific files
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.SettingsFile">
+            <summary>
+            Sets the path to the settings file that defines the rules
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.AdditionalAddInPaths">
+            <summary>
+            Set the location of any custom addins
+            </summary>
+        </member>
+        <member name="P:TfsBuildExtensions.Activities.CodeQuality.StyleCop.TreatViolationsErrorsAsWarnings">
+            <summary>
+            Set to true to treat all stylecop violations as warnings
+            </summary>
+        </member>
+    </members>
+</doc>

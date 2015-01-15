@@ -1,0 +1,74 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+    <PropertyGroup>
+        <ReleaseVersion>TfsBuildExtensions</ReleaseVersion>
+        <PackageDrive>C:</PackageDrive>
+        <PackageRoot>$(PackageDrive)\Releases\TFSBE\$(ReleaseVersion)</PackageRoot>
+        <Configuration>Release|Any CPU</Configuration>
+        <VisualStudioVersion>12.0</VisualStudioVersion>
+        <VisualStudioVersionFriendly>VS2013</VisualStudioVersionFriendly>
+    </PropertyGroup>
+
+    <Target Name="PreCheckin" DependsOnTargets="StyleCop;Compile"/>
+
+    <Target Name="Package" DependsOnTargets="Compile;BuildChm;CleanFiles;PackageCodePlex;Touch"/>
+
+    <Target Name="StyleCop" Condition="$(SkipStyleCop) != 'true'">
+        <Message Text="$(MSBuildProjectDirectory)\..\Settings.StyleCop"/>
+        <ItemGroup>
+            <StyleCopFiles Include="$(MSBuildProjectDirectory)\..\**\*.cs" Exclude="$(MSBuildProjectDirectory)\..\**\*.designer.cs;
+                                                                                    $(MSBuildProjectDirectory)\..\Test*\**\*.*;
+                                                                                    $(MSBuildProjectDirectory)\..\Common\Common*;
+                                                                                    $(MSBuildProjectDirectory)\..\Buildbinaries\**\*.*"/>
+        </ItemGroup>
+        <MSBuild.ExtensionPack.CodeQuality.StyleCop TaskAction="Scan" SourceFiles="@(StyleCopFiles)" ShowOutput="false" ForceFullAnalysis="true" CacheResults="false" logFile="StyleCopLog.txt" SettingsFile="$(MSBuildProjectDirectory)\..\Settings.StyleCop">
+            <Output TaskParameter="Succeeded" PropertyName="AllPassed"/>
+            <Output TaskParameter="ViolationCount" PropertyName="Violations"/>
+            <Output TaskParameter="FailedFiles" ItemName="Failures"/>
+        </MSBuild.ExtensionPack.CodeQuality.StyleCop>
+        <Message Text="...StyleCop complete. $(Violations) violations"/>
+        <Error Condition="'$(Violations)' != '0'" Text="Stylecop Failed: $(Violations) violations" />
+    </Target>
+    
+    <Target Name="Compile">
+        <MSBuild.ExtensionPack.VisualStudio.VSDevEnv FilePath="..\TFSBuildExtensions.sln" Version="$(VisualStudioVersion)" Configuration="$(Configuration)" Rebuild="true">
+            <Output TaskParameter="ExitCode" PropertyName="Exit" />
+        </MSBuild.ExtensionPack.VisualStudio.VSDevEnv>
+        <Message Text="ExitCode: $(Exit)"/>
+        <Error Condition="'$(Exit)' != '0'" Text="Compile Failed" />
+    </Target>
+
+    <Target Name="BuildChm" Condition="$(BuildChm) != 'false'">
+        <MSBuild Projects="Documentation\TFSBuildExtensionsHelp.shfbproj"/>
+    </Target>
+
+    <Target Name="CleanFiles">
+        <ItemGroup>
+            <FilesToDelete Include="..\BuildBinaries\*.*"
+                           Exclude="..\BuildBinaries\TfsBuildExtensions*.dll;
+                                    ..\BuildBinaries\TfsBuildExtensions*.pdb;
+                                    ..\BuildBinaries\Ionic*.dll"/>
+        </ItemGroup>
+        <Microsoft.Build.Tasks.Delete Files="@(FilesToDelete)"/>
+    </Target>
+
+    <Target Name="PackageCodePlex">
+        <MSBuild.ExtensionPack.FileSystem.Folder TaskAction="RemoveContent" Path="$(PackageRoot)\Code Activities\$(VisualStudioVersionFriendly)" Condition="Exists('$(PackageRoot)\Code Activities\$(VisualStudioVersionFriendly)')"/>
+
+        <Microsoft.Build.Tasks.MakeDir Directories="$(PackageRoot)\Code Activities\$(VisualStudioVersionFriendly)"/>
+        <Microsoft.Build.Tasks.Copy OverwriteReadOnlyFiles="true" SourceFiles="..\Common\License.rtf" DestinationFiles="$(PackageRoot)\Code Activities\$(VisualStudioVersionFriendly)\License.rtf"/>
+        <Microsoft.Build.Tasks.Copy OverwriteReadOnlyFiles="true" SourceFiles="..\Build\Documentation\Help\TFS Build Extensions Help.chm" DestinationFiles="$(PackageRoot)\Code Activities\$(VisualStudioVersionFriendly)\TFS Build Extensions Help.chm" Condition="$(BuildChm) != 'false'"/>
+        <ItemGroup>
+            <FilestoCopy Include="$(MSBuildProjectDirectory)\..\Buildbinaries\TfsBuildExtensions.*;
+                                      $(MSBuildProjectDirectory)\..\Buildbinaries\Ionic.Zip.dll"/>
+        </ItemGroup>
+        <Microsoft.Build.Tasks.Copy SourceFiles="@(FilestoCopy)" DestinationFolder="$(PackageRoot)\Code Activities\$(VisualStudioVersionFriendly)"/>
+    </Target>
+
+    <Target Name="Touch">
+        <ItemGroup>
+            <TouchFiles Include="$(PackageRoot)\**\*.*"/>
+        </ItemGroup>
+        <Touch Files="@(TouchFiles)" ForceTouch="true"/>
+    </Target>
+</Project>

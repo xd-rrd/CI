@@ -1,0 +1,11 @@
+C:\Workspaces\EOL\CI\ContinuousIntegration\TFSBuildExtensions\Tests\TFSBuildExtensions.TestsWithFakes\TFSBuildExtensions.TestsWithFakes\obj\Debug\Fakes\mtfc\b\Microsoft.TeamFoundation.Client.12.0.0.0.Fakes.xml
+C:\Workspaces\EOL\CI\ContinuousIntegration\TFSBuildExtensions\Tests\TFSBuildExtensions.TestsWithFakes\TFSBuildExtensions.TestsWithFakes\obj\Debug\Fakes\mtfc\b\Microsoft.TeamFoundation.Client.12.0.0.0.Fakes.dll
+C:\Workspaces\EOL\CI\ContinuousIntegration\TFSBuildExtensions\Tests\TFSBuildExtensions.TestsWithFakes\TFSBuildExtensions.TestsWithFakes\obj\Debug\Fakes\mtfc\b\Microsoft.TeamFoundation.Client.12.0.0.0.Fakes.pdb
+C:\Workspaces\EOL\CI\ContinuousIntegration\TFSBuildExtensions\Tests\TFSBuildExtensions.TestsWithFakes\TFSBuildExtensions.TestsWithFakes\obj\Debug\Fakes\mtfc\b\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Workspaces\EOL\CI\ContinuousIntegration\TFSBuildExtensions\Tests\TFSBuildExtensions.TestsWithFakes\TFSBuildExtensions.TestsWithFakes\obj\Debug\Fakes\mtfc\b\Microsoft.TeamFoundation.Build.Workflow.dll
+C:\Workspaces\EOL\CI\ContinuousIntegration\TFSBuildExtensions\Tests\TFSBuildExtensions.TestsWithFakes\TFSBuildExtensions.TestsWithFakes\obj\Debug\Fakes\mtfc\b\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader.dll
+C:\Workspaces\EOL\CI\ContinuousIntegration\TFSBuildExtensions\Tests\TFSBuildExtensions.TestsWithFakes\TFSBuildExtensions.TestsWithFakes\obj\Debug\Fakes\mtfc\b\Newtonsoft.Json.dll
+C:\Workspaces\EOL\CI\ContinuousIntegration\TFSBuildExtensions\Tests\TFSBuildExtensions.TestsWithFakes\TFSBuildExtensions.TestsWithFakes\obj\Debug\Fakes\mtfc\b\Microsoft.WITDataStore.dll
+C:\Workspaces\EOL\CI\ContinuousIntegration\TFSBuildExtensions\Tests\TFSBuildExtensions.TestsWithFakes\TFSBuildExtensions.TestsWithFakes\obj\Debug\Fakes\mtfc\o\f.csprojResolveAssemblyReference.cache
+C:\Workspaces\EOL\CI\ContinuousIntegration\TFSBuildExtensions\Tests\TFSBuildExtensions.TestsWithFakes\TFSBuildExtensions.TestsWithFakes\obj\Debug\Fakes\mtfc\o\Microsoft.TeamFoundation.Client.12.0.0.0.Fakes.dll
+C:\Workspaces\EOL\CI\ContinuousIntegration\TFSBuildExtensions\Tests\TFSBuildExtensions.TestsWithFakes\TFSBuildExtensions.TestsWithFakes\obj\Debug\Fakes\mtfc\o\Microsoft.TeamFoundation.Client.12.0.0.0.Fakes.pdb
