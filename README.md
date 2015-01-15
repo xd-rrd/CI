@@ -6,8 +6,11 @@ Goal
 We want to ensure code can only be checked in when the following criteria are met:
 
 1)	Code review: code need to be reviewed by peers
+
 2)	Styles must satisfy predefined rules (i.e. FxCop)
+
 3)	Unit tests: affected unit tests should still pass
+
 4)	Code coverage: code coverage need to be above predefined percentage
 
 Build Process
